@@ -43,27 +43,27 @@ function daBears(){
 // Which function(s) access the "chair" variable and get "Too Big!"
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale1 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale1 = ["papaBear", "mamaBear"];
 
 // Which function(s) access the "feeling" variable and get "Hungry"
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale2 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale2 = ["goldilocks"];
 
 // Which function(s) access the "porridge" variable and get "Too Cold!"
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale3 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale3 = ["mamaBear"];
 
 // Which function(s) access the "sleepy" variable and get undefined
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale4 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale4 = ["daBears", "papaBear", "mamaBear", "goldilocks"];
 
 // Which function(s) access the isFurry variable and get true
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear"];
 
 
 // *************
@@ -82,6 +82,25 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 // "charger" once, and invoke it twice on "mustang".
 
 // CODE HERE...
+
+function Vehicle(){
+  this.gasRemaining = 100
+}
+
+Vehicle.prototype.drive = function(){
+  return this.gasRemaining = this.gasRemaining - 25;
+}
+
+var charger = new Vehicle();
+
+charger.drive();
+
+var mustang = new Vehicle();
+
+mustang.drive();
+mustang.drive();
+
+
 
 
 
@@ -109,6 +128,19 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 
 // CODE HERE...
 
+String.prototype.grammarPolice = function(){ //String.prototype will be the string value we enter to correct the casing
+
+
+  var newStr = this.toLowerCase().split(" ");//brings it to lowercase and splits each word into an array as it's own element seperated by the space
+
+  var arr = []; //creates a new, empty array
+
+  for(var i = 0; i < newStr.length; i++){ //loops through length of newStr array
+    var firstLetter = newStr[i].substring(0, 1).toUpperCase();//stores the newStr's elements first letters of each word at index 0, and stops at index 1, but does not include the letter at index 1 and creates a new substring. Then upper cases those letters in the substring.
+    arr.push(firstLetter + newStr[i].substring(1));//concatenates the elements of firstLetter variable and the newStr array together into one array
+  }
+  return arr.join(" "); //joins the elements into the array to form a modified, titlecase string
+}//you may also use the .slice method instead of the .substring method
 
 
 // *************
@@ -127,6 +159,16 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 
 // CODE HERE...
 
+function valueType(param1, param2){
+  if(param1 === param2){
+    return "Exactly the same";
+  } else if(param1 == param2){
+    return "Same value, different types";
+  } else {
+    return "Different values"
+  }
+}
+
 
 
 // *************
@@ -141,3 +183,9 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 var theAnswer = "Unknown";
 
 // CODE HERE...
+
+function promiseCatcher(param){
+  param.then(function(result){
+    theAnswer = result;
+  })
+}
